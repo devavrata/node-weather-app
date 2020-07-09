@@ -5,6 +5,8 @@ const getGeocode = require('./utils/geocode.js')
 const forecast = require('./utils/forecast.js')
 
 const app = express()
+//this line will either set PORT when available from heroku or other deployment services, or will use 3000
+const port = process.env.PORT || 3000;
 
 console.log(__dirname)
 console.log(path.join(__dirname,'../public'))
@@ -118,8 +120,8 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server started at port 3000')
+app.listen(port, () => {
+    console.log('Server started at port: '+port)
 })
 
 
